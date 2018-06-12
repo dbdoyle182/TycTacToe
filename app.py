@@ -1,6 +1,5 @@
 # Input determines the order of the game as well as the symbol for player
 player1 = input("Please pick a marker 'X' or 'O' :")
-player2 = ""
 
 def turnOrder(playerchoice):
     if(playerchoice) == 'x' or(playerchoice) == 'X':
@@ -9,8 +8,8 @@ def turnOrder(playerchoice):
     elif(playerchoice) =='o' or(playerchoice) == 'O':
         print("Player one has chosen O, please go second")
         player2 = "X"
-    else:
-        
+
+turnOrder(player1)
 
 print(player1)
 print(player2)
