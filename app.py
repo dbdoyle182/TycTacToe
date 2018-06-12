@@ -54,6 +54,15 @@ def full_board_check(board):
             return False
     return True
 
+def player_choice(board):
+    position = 0
+
+    while position not in [1,2,3,4,5,6,7,8,9] or not space_check(board, position):
+        position = int(input('Choose your next position: (1-9) '))
+
+    return position
+
+    
 # def winner(board):
 #     if board[1] == board[2] == board[3] or board[4] == board[5] == board[6] or board[7] == board[8] == board[9]:
 #         print('win')
