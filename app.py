@@ -62,6 +62,18 @@ def player_choice(board):
 
     return position
 
+def replay():
+
+    return input('Do you want to play again? Enter Yes or No: ')
+
+print('Welcome to Tyc Tac Toe!')
+
+while True:
+    # Reset the board
+    theBoard = [' '] * 10
+    player1_marker, player2_marker = player_input()
+    turn = choose_first()
+    print(turn + ' will go first.')
     
 # def winner(board):
 #     if board[1] == board[2] == board[3] or board[4] == board[5] == board[6] or board[7] == board[8] == board[9]:
