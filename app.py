@@ -1,5 +1,5 @@
 # Input determines the symbol for player
-player1 = input("Please pick a marker 'X' or 'O' :")
+player = input("Please pick a marker 'X' or 'O' :")
 
 #Determines turn order
 position = int(input('Please enter a number: '))
@@ -13,6 +13,18 @@ def display_board(board):
     print(' {} | {} | {} '.format(board[4],board[5],board[6]))
     print('___|___|___')
     print(' {} | {} | {} '.format(board[1],board[2],board[3]))
+
+def player_input():
+    marker = ''
+
+    while not (marker == 'X' or marker == 'O'):
+        marker = input('Player 1: Do you want to be X or O? ').upper()
+
+    if marker == 'X':
+        return ('X','O')
+    else:
+        return ('X','O')
+
 
 def winner(board):
     if board[1] == board[2] == board[3] or board[4] == board[5] == board[6] or board[7] == board[8] == board[9]:
