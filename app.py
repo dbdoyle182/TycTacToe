@@ -74,7 +74,22 @@ while True:
     player1_marker, player2_marker = player_input()
     turn = choose_first()
     print(turn + ' will go first.')
+
+    play_game = input('Are you ready to play? Enter Yes or No.')
+
+    if play_game.lower()[0] == 'y':
+        game_on = True
+    else:
+        game_on = False
     
+    while game_on:
+        if turn == 'Player 1':
+            # Player One's turn
+
+            display_board(theBoard)
+            position = player_choice(theBoard)
+
+            
 # def winner(board):
 #     if board[1] == board[2] == board[3] or board[4] == board[5] == board[6] or board[7] == board[8] == board[9]:
 #         print('win')
