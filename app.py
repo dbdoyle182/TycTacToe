@@ -88,8 +88,22 @@ while True:
 
             display_board(theBoard)
             position = player_choice(theBoard)
+            place_marker(theBoard, player1_marker, position)
 
-            
+            if win_check(theBoard, player1_marker):
+                display_board(theBoard)
+                print('Congratulations! You have won the game!')
+                game_on = False
+            else:
+                if full_board_check(theBoard):
+                    display_board(theBoard)
+                    print('The game is a draw!')
+                    break
+                else:
+                    turn = 'Player 2'
+
+        else:
+
 # def winner(board):
 #     if board[1] == board[2] == board[3] or board[4] == board[5] == board[6] or board[7] == board[8] == board[9]:
 #         print('win')
