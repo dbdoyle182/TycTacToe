@@ -115,7 +115,7 @@ while True:
                 game_on = False
             else: 
                 if full_board_check(theBoard):
-                    display_board(theBored)
+                    display_board(theBoard)
                     print('The game is a draw')
                     break
                 else:
