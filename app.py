@@ -6,15 +6,16 @@ players = [0, 'X', 'O']
 
 
 
-def display_board(board):
-    print("\n"*100)
-
-    print('___|___|___')
-    print(' {} | {} | {} '.format(board[7],board[8],board[9]))
-    print('___|___|___')
-    print(' {} | {} | {} '.format(board[4],board[5],board[6]))
-    print('___|___|___')
-    print(' {} | {} | {} '.format(board[1],board[2],board[3]))
+def display_board(a,b):
+    print('Available   TIC-TAC-TOE\n'+
+           '  moves\n\n  '+
+          a[7]+'|'+a[8]+'|'+a[9]+'        '+b[7]+'|'+b[8]+'|'+b[9]+'\n  '+
+          '-----        -----\n  '+
+          a[4]+'|'+a[5]+'|'+a[6]+'        '+b[4]+'|'+b[5]+'|'+b[6]+'\n  '+
+          '-----        -----\n  '+
+          a[1]+'|'+a[2]+'|'+a[3]+'        '+b[1]+'|'+b[2]+'|'+b[3]+'\n')
+          
+display_board(available,theBoard)
 
 def player_input():
     marker = ''
