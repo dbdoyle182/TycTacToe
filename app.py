@@ -16,19 +16,6 @@ def place_marker(avail,board,marker,position):
     board[position] = marker
     avail[position] = ' '
 
-def player_input():
-    marker = ''
-
-    while not (marker == 'X' or marker == 'O'):
-        marker = input('Player 1: Do you want to be X or O? ').upper()
-
-    if marker == 'X':
-        return ('X','O')
-    else:
-        return ('X','O')
-
-def place_marker(board, marker, position):
-    board[position] = marker
 
 def win_check(board,mark):
     
@@ -41,28 +28,31 @@ def win_check(board,mark):
     (board[7] == mark and board[5] == mark and board[3] == mark) or # diagonal
     (board[9] == mark and board[5] == mark and board[1] == mark)) # diagonal
 
+def random_player():
+    return random.choice((-1, 1))
+    
+def space_check(board,position):
+    return board[position] == ' '
+
+def full_board_check(board):
+    return ' ' not in board[1:]
+
 def choose_first():
     if random.randint(0, 1) == 0:
         return 'Player 2'
     else:
         return 'Player 1'
 
-def space_check(board, position):
 
-    return board[position] == ' '
-
-def full_board_check(board):
-    for i in range(1,10):
-        if space_check(board, i):
-            return False
-    return True
-
-def player_choice(board):
+def player_choice(board,player):
     position = 0
-
+    
     while position not in [1,2,3,4,5,6,7,8,9] or not space_check(board, position):
-        position = int(input('Choose your next position: (1-9) '))
-
+        try:
+            position = int(input('Player %s, choose your next position: (1-9) '%(player)))
+        except:
+            print("I'm sorry, please try again.")
+        
     return position
 
 def replay():
