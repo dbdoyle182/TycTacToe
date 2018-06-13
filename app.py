@@ -1,7 +1,10 @@
 import random
 
+theBoard = [' ']
+available = [str(num) for num in range(0, 10)]
+players = [0, 'X', 'O']
 
-test_board = ['#','X','O','X','O','X','O','X','O','X']
+
 
 def display_board(board):
     print("\n"*100)
