@@ -12,6 +12,10 @@ def display_board(a,b):
 
 display_board(available,theBoard)
 
+def place_marker(avail,board,marker,position):
+    board[position] = marker
+    avail[position] = ' '
+
 def player_input():
     marker = ''
 
