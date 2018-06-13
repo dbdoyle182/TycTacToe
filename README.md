@@ -10,3 +10,10 @@ A program that allows two users to play tic tac toe locally on their own machine
 
 ## Set Up
 
+1. Fork this repository to your github and then ```git clone <YOUR URL HERE>```
+1. Open your terminal and navigate to the folder storing the ```app.py``` file.
+1. Once you are in the correct directory run ```python app.py``` or ```py app.py``` (depending on your PATH environment variables) and play some Tic Tac Toe!
+
+## Author 
+
+* [Daniel Doyle](https://dbdoyle182.github.io/DoyleDev/)
