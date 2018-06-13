@@ -56,9 +56,9 @@ def player_choice(board,player):
     return position
 
 def replay():
-
-    return input('Do you want to play again? Enter Yes or No: ')
-
+    
+    return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
+    
 print('Welcome to Tyc Tac Toe!')
 
 while True:
