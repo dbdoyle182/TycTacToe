@@ -1,6 +1,6 @@
 import random
 
-theBoard = [' ']
+theBoard = [' '] * 10
 available = [str(num) for num in range(0, 10)]
 players = [0, 'X', 'O']
 
@@ -58,62 +58,42 @@ def player_choice(board,player):
 def replay():
     
     return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
-    
-print('Welcome to Tyc Tac Toe!')
+
+
 
 while True:
-    # Reset the board
-    theBoard = [' '] * 10
-    player1_marker, player2_marker = player_input()
-    turn = choose_first()
-    print(turn + ' will go first.')
+    print('\n'*100)
+    print('Welcome to Tyc Tac Toe!')
 
-    play_game = input('Are you ready to play? Enter Yes or No.')
-
-    if play_game.lower()[0] == 'y':
-        game_on = True
-    else:
-        game_on = False
+    toggle = random_player()
+    player = players[toggle]
+    print('For this round, Player %s will go first!' %(player))
     
+    game_on = True
+    input('Hit Enter to continue')
     while game_on:
-        if turn == 'Player 1':
-            # Player One's turn
+        display_board(available,theBoard)
+        position = player_choice(theBoard,player)
+        place_marker(available,theBoard,player,position)
 
-            display_board(theBoard)
-            position = player_choice(theBoard)
-            place_marker(theBoard, player1_marker, position)
-
-            if win_check(theBoard, player1_marker):
-                display_board(theBoard)
-                print('Congratulations! You have won the game!')
-                game_on = False
-            else:
-                if full_board_check(theBoard):
-                    display_board(theBoard)
-                    print('The game is a draw!')
-                    break
-                else:
-                    turn = 'Player 2'
-
+        if win_check(theBoard, player):
+            display_board(available,theBoard)
+            print('Congratulations! Player '+player+' wins!')
+            game_on = False
         else:
-            # Player2's turn.
+            if full_board_check(theBoard):
+                display_board(available,theBoard)
+                print('The game is a draw!')
+                break
+            else:
+                toggle *= -1
+                player = players[toggle]
+                print('\n'*100)
 
-            display_board(theBoard)
-            position = player_choice(theBoard)
-            place_marker(theBoard, player2_marker, position)
-
-            if win_check(theBoard, player2_marker):
-                display_board(theBoard)
-                print('Player 2 has won!')
-                game_on = False
-            else: 
-                if full_board_check(theBoard):
-                    display_board(theBoard)
-                    print('The game is a draw')
-                    break
-                else:
-                    turn = 'Player 1'
-
+    # reset the board and available moves list
+    theBoard = [' '] * 10
+    available = [str(num) for num in range(0,10)]
+    
     if not replay():
         break
 
